@@ -1,0 +1,109 @@
+import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.toList;
+List<String> lowCaloricDishesName =
+menu.stream()
+.filter(d -> d.getCalories() < 400)
+.sorted(comparing(Dish::getCalories))
+.map(Dish::getName)
+.collect(toList());
+
+String names[] = {"Sally", "George", "Paul"};
+List<String> list = Arrays.asList(names);
+Stream<String> stream = list.stream();
+stream.forEach(name ->System.out.println(name + " - "
++ name.length()));
+
+//ENHANCED FOR LOOPS
+for (String num : numberString) {
+numbers.add(Integer.parseInt(num));
+}
+
+//EQUIVALENT
+numbers.clear();
+numberString
+.stream()
+.forEach(s -> numbers.add(Integer.parseInt(s)));
+
+enum EmployeeType {Hourly, Salary, Sales};
+public float calculatePay(int hoursWorked,
+float payRate, EmployeeType type) {
+switch (type) {
+case Hourly:
+return hoursWorked * payRate;
+case Salary:
+return 40 * payRate;
+case Sales:
+return 500.0f + 0.15f * payRate;
+default:
+return 0.0f;
+}
+}
+
+IntStream.iterate(0, n -> n + 1)
+.limit(10)
+.forEach(n -> System.out.print(n + " "));
+
+IntStream.iterate(0, n -> n + 1)
+.filter(n -> n>10 && n<100)
+.limit(10)
+.forEach(n -> System.out.print(n + " "));
+
+//RECTANGLE AND SCALE IT UP AND FIND ITS SUM
+Rectangle[]
+
+rectangles = {
+New Rectangle(10, 10, 50, 75),
+new Rectangle(30, 40, 30, 45),
+new Rectangle(110, 70, 70, 15),
+new Rectangle(50, 10, 45, 35)
+
+Stream<Rectangle> stream = Arrays.stream(rectangles);
+total = stream
+.map(r -> r.scale(0.25))
+.mapToInt(Rectangle::getArea)
+.sum();
+System.out.println(total);
+
+SECOND WAY
+stream = Arrays.stream(rectangles);
+total = stream
+.map(r -> r.scale(0.25))
+.mapToInt(Rectangle::getArea)
+.reduce(0,(r, s) -> r + s);
+
+
+ IntStream stream = Arrays.stream(numbers);
+    total = stream
+            .distinct()
+            .sum();
+
+     //CREATE  ITERATE
+IntStream.iterate(0, n -> n + 1)
+.limit(10)
+.forEach(n -> System.out.print(n + " "));
+//output
+0 1 2 3 4 5 6 7 8 9
+
+//To filter  animals ending with s
+String[] animals = {"cats", "dog", "ox", "bats"
+, "horses", "mule"};
+Stream<String> animalStream = Arrays.stream(animals);
+animalStream
+.filter(x->!x.matches(".*s$"))
+.sorted()
+.forEach(x->System.out.println(x));
+
+int[] numbers = {3, 6, 8, 8, 4, 6, 3, 3, 5, 6, 9, 4, 3, 6};
+IntStream stream = Arrays.stream(numbers);
+
+int[] numbers = {3, 6, 8, 8, 4, 6, 3, 3, 5, 6, 9, 4, 3, 6};
+IntStream stream = Arrays.stream(numbers);
+stream = Arrays.stream(numbers);
+stream
+.sorted()
+.distinct()
+.forEach(n->System.out.print(n + " "));
+System.out.println();
+
+
+
